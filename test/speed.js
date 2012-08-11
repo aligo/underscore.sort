@@ -1,3 +1,8 @@
+// underscore.sort
+// (c) 2012 aligo <aligo_x at 163 dot com>
+// underscore.sort is freely distributable under the terms of the MIT license.
+// GitHub: https://github.com/aligo/underscore.sort
+
 (function() {
 
   var fields = ['a', 'b', 'c', 'd', 'e'];
