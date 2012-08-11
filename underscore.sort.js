@@ -14,7 +14,7 @@
     sorted_objs.sort(function (a, b) {
       var i = 0;
       var diff = 0;
-      while (diff == 0) {
+      while (diff == 0 && i < fields.length) {
         var field = fields[i];
         i = i + 1;
         diff = sortfunction(a[field], b[field])
