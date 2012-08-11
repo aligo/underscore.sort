@@ -12,7 +12,7 @@
   JSLitmus.test('plan A', function () {
     var sorted_objects = _.clone(objects);
     _.each(_.clone(fields).reverse(), function (field) {
-      sorted_objects = _.values(sorted_objects).sort(function (a,b) {
+      sorted_objects = _.values(sorted_objects).sort(function (a, b) {
         return b[field] - a[field];
       });
     });
@@ -21,12 +21,12 @@
 
   JSLitmus.test('plan B', function () {
     var sorted_objects = _.clone(objects);
-    var sortfunction = function (a,b) {
+    var sortfunction = function (a, b) {
       return b - a;
     };
     _.each(_.clone(fields).reverse(), function (field) {
-      sorted_objects = _.values(sorted_objects).sort(function (a,b) {
-        return sortfunction(a[field], b[field])
+      sorted_objects = _.values(sorted_objects).sort(function (a, b) {
+        return sortfunction(a[field], b[field]);
       });
     });
     return sorted_objects;
@@ -34,18 +34,26 @@
 
   JSLitmus.test('plan C', function () {
     var sorted_objects = _.clone(objects);
-    var sortfunction = function (a,b) {
+    var sortfunction = function (a, b) {
       return b - a;
     };
-    sorted_objects.sort(function (a,b) {
+    sorted_objects.sort(function (a, b) {
       var i = 0;
       var diff = 0;
       while (diff == 0) {
         var field = fields[i];
         i = i + 1;
-        diff = sortfunction(a[field], b[field])
+        diff = sortfunction(a[field], b[field]);
       }
       return diff;
+    });
+    return sorted_objects;
+  });
+
+  JSLitmus.test('_.sort (plan C)', function () {
+    var sorted_objects = _.clone(objects);
+    _.sort(sorted_objects, fields, function (a, b) {
+      return b - a;
     });
     return sorted_objects;
   });
